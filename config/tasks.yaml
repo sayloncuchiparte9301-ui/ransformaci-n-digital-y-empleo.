@@ -1,0 +1,39 @@
+tasks:
+  identify_sources:
+    agent: source_agent
+    output: ["docs/fuentes.md", "config/sources.yaml"]
+
+  collect_data:
+    agent: data_agent
+    depends_on: ["identify_sources"]
+    output: ["data/raw", "data/metadata"]
+
+  validate_data:
+    agent: validation_agent
+    depends_on: ["collect_data"]
+    output: ["data/processed"]
+
+  economic_analysis:
+    agent: economic_analysis_agent
+    depends_on: ["validate_data"]
+    output: ["outputs/tables", "outputs/charts"]
+
+  econometric_analysis:
+    agent: econometric_agent
+    depends_on: ["validate_data"]
+    output: ["outputs/tables", "outputs/charts"]
+
+  create_dashboard:
+    agent: visualization_agent
+    depends_on: ["economic_analysis", "econometric_analysis"]
+    output: ["dashboard"]
+
+  write_report:
+    agent: report_agent
+    depends_on: ["economic_analysis", "econometric_analysis", "create_dashboard"]
+    output: ["docs/informe_final.pdf"]
+
+  audit_project:
+    agent: audit_agent
+    depends_on: ["write_report"]
+    output: ["docs/bitacora_agentes.md"]

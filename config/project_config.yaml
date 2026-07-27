@@ -1,0 +1,6 @@
+project:
+  name: "transformacion-digital-y-empleo"
+  language: ["Python", "TypeScript"]
+  dashboard_framework: "Next.js"
+  deployment: "Vercel"
+  report_format: "PDF"

@@ -1,0 +1,49 @@
+project_scope:
+  countries:
+    ECU: Ecuador
+    COL: Colombia
+    CHL: Chile
+    PER: Perú
+  period:
+    start_year: 2014
+    end_year: latest_available
+  frequency: annual
+
+primary_source:
+  name: World Development Indicators
+  institution: World Bank
+  access:
+    type: API
+    url_template: "https://api.worldbank.org/v2/country/{countries}/indicator/{indicator}?format=json&date={start_year}:{end_year}&per_page=1000"
+  indicators:
+    employment_to_population_15plus_pct:
+      code: SL.EMP.TOTL.SP.ZS
+      name: "Employment to population ratio, 15+, total (%), modeled ILO estimate"
+      unit: percent
+    unemployment_rate_pct:
+      code: SL.UEM.TOTL.ZS
+      name: "Unemployment, total (% of total labor force), modeled ILO estimate"
+      unit: percent
+    internet_users_pct:
+      code: IT.NET.USER.ZS
+      name: "Individuals using the Internet (% of population)"
+      unit: percent
+    fixed_broadband_per_100:
+      code: IT.NET.BBND.P2
+      name: "Fixed broadband subscriptions (per 100 people)"
+      unit: subscriptions_per_100_people
+
+ecuador_complementary_source:
+  name: ENEMDU
+  institution: Instituto Nacional de Estadística y Censos (INEC)
+  access:
+    type: public_catalog_and_tabulations
+    url: "https://anda.inec.gob.ec/anda/"
+  indicators:
+    informal_employment_pct:
+      name: "Empleo en el sector informal"
+      unit: percent
+    adequate_employment_pct:
+      name: "Empleo adecuado/pleno"
+      unit: percent
+  note: "Se analiza por separado: sus definiciones y cobertura no son directamente comparables con la serie internacional."

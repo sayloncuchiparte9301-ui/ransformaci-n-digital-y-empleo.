@@ -1,0 +1,45 @@
+agents:
+  coordinator:
+    role: "Coordinador general"
+    goal: "Gestionar el flujo completo del análisis"
+    tools: ["task_manager", "file_reader", "report_validator"]
+
+  source_agent:
+    role: "Especialista en fuentes"
+    goal: "Localizar datos oficiales nacionales e internacionales"
+    tools: ["web_search", "source_registry"]
+
+  data_agent:
+    role: "Recopilador de datos"
+    goal: "Descargar, organizar y documentar bases de datos"
+    tools: ["data_importer", "metadata_writer"]
+
+  validation_agent:
+    role: "Validador de calidad"
+    goal: "Revisar consistencia, faltantes y duplicados"
+    tools: ["data_profiler", "quality_checker"]
+
+  economic_analysis_agent:
+    role: "Analista económico"
+    goal: "Interpretar la relación entre digitalización y empleo"
+    tools: ["indicator_engine", "comparison_tool"]
+
+  econometric_agent:
+    role: "Agente estadístico"
+    goal: "Aplicar técnicas econométricas básicas"
+    tools: ["regression_tool", "time_series_tool"]
+
+  visualization_agent:
+    role: "Diseñador de visualizaciones"
+    goal: "Generar gráficos y tablas para el dashboard"
+    tools: ["chart_builder", "dashboard_renderer"]
+
+  report_agent:
+    role: "Redactor académico"
+    goal: "Construir el informe final en PDF"
+    tools: ["document_writer", "citation_manager"]
+
+  audit_agent:
+    role: "Auditor de consistencia"
+    goal: "Verificar trazabilidad y coherencia final"
+    tools: ["trace_checker", "repository_checker"]

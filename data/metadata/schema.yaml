@@ -1,0 +1,22 @@
+dataset:
+  name: indicators_annual
+  path: data/processed/indicators_annual.csv
+  grain: country-year
+  primary_key: [country_code, year]
+  required_columns:
+    - country_code
+    - country_name
+    - year
+    - employment_to_population_15plus_pct
+    - unemployment_rate_pct
+    - internet_users_pct
+    - fixed_broadband_per_100
+  validation_rules:
+    country_code: [ECU, COL, CHL, PER]
+    year:
+      minimum: 2014
+    percentage_columns:
+      - employment_to_population_15plus_pct
+      - unemployment_rate_pct
+      - internet_users_pct
+    percentage_range: [0, 100]
